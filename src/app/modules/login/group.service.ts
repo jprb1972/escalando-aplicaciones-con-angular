@@ -7,6 +7,7 @@ interface Group {
   value: string;
 }
 
+
 @Injectable()
 export class GroupService {
 
@@ -18,4 +19,6 @@ export class GroupService {
     return this.http.get<Group[]>(environment.endpoint.groups)
       .toPromise();
   }
+
+
 }

@@ -56,3 +56,23 @@
     headers:
       content-type: application/json
     file: ./groups.json
+
+- request:
+    url: ^/admin/v1/create$
+    method: POST
+  response:
+    status: 200
+    latency: 1000
+    headers:
+      content-type: application/json
+    file: ./user.json
+
+- request:
+    url: ^/admin/v1/users$
+    method: GET
+  response:
+    status: 200
+    latency: 1000
+    headers:
+      content-type: application/json
+    file: ./users.json

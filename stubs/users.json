@@ -1,0 +1,18 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "fullName": "Administrator",
+            "email": "admin@app.com",
+            "password": "*******",
+            "group": "A"
+          },
+          {
+            "id": 2,
+            "fullName": "Juan Pablo Reyes",
+            "email": "admin@app.com",
+            "password": "*******",
+            "group": "B"
+          }
+    ]
+}

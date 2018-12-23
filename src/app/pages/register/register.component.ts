@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
     password: new FormControl('',  [Validators.required, Validators.minLength(5)]),
   });
 
-  isLosading = false;
+  isLoading = false;
 
   constructor(private registerService: RegisterService) { }
 
@@ -25,13 +25,13 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      this.isLosading = true;
+      this.isLoading = true;
       this.registerService
       .register(this.form.value)
       .subscribe(() => {
-        this.isLosading = false;
+        this.isLoading = false;
       }, (reason) => {
-        this.isLosading =false;
+        this.isLoading =false;
         alert(JSON.stringify(reason));
       })
       ;

@@ -20,6 +20,14 @@ const routes: Routes = [
     canLoad: [AuthGuard]
   },
   {
+    path: 'usermanager',
+    loadChildren: './pages/usermanager/usermanager.module#UsermanagerModule',
+  },
+  {
+    path: 'admin',
+    loadChildren: './pages/usermanager/usermanager.module#UsermanagerModule',
+  },
+  {
     path: '**',
     component: PageNotFoundComponent
   }
@@ -28,7 +36,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes),
-    LoginModule
+    LoginModule,
   ],
   exports: [ RouterModule ]
 })

@@ -1,0 +1,90 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-card>
+      <div mat-vard-image></div>
+      <mat-card-content>
+        
+    
+      <mat-form-field appearance="outline">
+        <mat-label>Full name</mat-label>
+        <input type="text" formControlName="fullName" matInput required minlength="3" maxlength="100"/>
+        <mat-icon matSuffix>face</mat-icon>
+        <mat-hint>Type user full name</mat-hint>
+        <mat-error *ngIf="form.get('fullName').errors">
+        {{form.get('fullName').errors | json}}
+        </mat-error>
+      </mat-form-field>
+    
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input type="email" formControlName="email" required minlength="3" matInput/>
+        <mat-icon matSuffix>email</mat-icon>
+        <mat-hint>Type user email</mat-hint>
+        <mat-error *ngIf="form.get('email').errors">
+            {{form.get('email').errors | json }}
+            </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input type="password" formControlName="password" required minlength="5" matInput/>
+        <mat-icon matSuffix>code</mat-icon>
+        <mat-hint>Type user paswword</mat-hint>
+        <mat-error *ngIf="form.get('password').errors">
+            {{form.get('password').errors | json }}
+            </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Group</mat-label>
+
+        <mat-select formControlName="group"  placeholder="Group to belong" required>
+          <mat-option value="">Make a choice</mat-option>
+          <mat-option *ngFor="let group of groups" [value]="group.id">
+            {{group.value}}
+          </mat-option>
+        </mat-select>
+
+        <mat-icon matSuffix>list</mat-icon>
+        <mat-hint>Select group to belong</mat-hint>
+        <mat-error *ngIf="form.get('group').errors">
+            {{form.get('group').errors | json }}
+          </mat-error>
+      </mat-form-field>
+
+      </mat-card-content>
+
+      <mat-card-actions>
+          <button [disabled]="isLoading" mat-button color="primary" type="submit">
+            <mat-icon>lock_open</mat-icon> Add user
+          </button>
+      </mat-card-actions>
+
+      <mat-card-content>
+   
+              <table>
+                  <tr>
+                    <th>Id</th>
+                    <th>Full name</th>
+                    <th>email</th>
+                    <th>Password</th>
+                    <th>Group</th>
+                  </tr>
+                  <tr *ngFor="let user of users">
+                    <td>{{user.id}}</td>
+                    <td>{{user.fullName}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.password}}</td>
+                    <td>{{user.group}}</td>
+                  </tr>
+                </table>
+
+      </mat-card-content>
+
+
+    </mat-card>
+  </form>
+  
+  <h2 *ngIf="isLoading">
+    Estamos enviado la data para crear usuario
+  </h2>
+  
